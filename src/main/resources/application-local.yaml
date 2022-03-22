@@ -1,0 +1,36 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /spring-cloud-sqs-s3-events-save-to-dynamo
+
+cloud:
+  aws:
+    access-key: default_access_key
+    secret-key: default_secret_key
+    dynamodb:
+      endpoint: http://localhost:4566
+    s3:
+      endpoint: http://localhost:4566
+      with-path-style-access-enabled: true
+    sqs:
+      url: http://localhost:4566/000000000000/upload-file-event-sqs
+
+# Used for test, it logs queries
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+        transaction: DEBUG
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG
+              MongoTemplate: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

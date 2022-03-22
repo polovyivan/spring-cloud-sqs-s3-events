@@ -1,0 +1,39 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /spring-cloud-sqs-s3-events-save-to-dynamo
+
+cloud:
+  aws:
+    region:
+      static: sa-east-1
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
+    dynamodb:
+      endpoint: http://dynamodb.sa-east-1.amazonaws.com
+    s3:
+      bucket-name: tutorial-bucket
+      endpoint: ${AWS_S3_ENDPOINT}
+      with-path-style-access-enabled: false
+    sqs:
+      url: ${AWS_SQS_URL}
+
+# Used for test, it logs queries
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+        transaction: DEBUG
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG
+              MongoTemplate: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
