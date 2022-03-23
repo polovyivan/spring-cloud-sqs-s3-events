@@ -17,23 +17,3 @@ cloud:
       with-path-style-access-enabled: false
     sqs:
       url: ${AWS_SQS_URL}
-
-# Used for test, it logs queries
-logging:
-  level:
-    org:
-      springframework:
-        orm:
-          jpa: DEBUG
-        transaction: DEBUG
-        data:
-          mongodb:
-            core:
-              ReactiveMongoTemplate: DEBUG
-              MongoTemplate: DEBUG
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: TRACE

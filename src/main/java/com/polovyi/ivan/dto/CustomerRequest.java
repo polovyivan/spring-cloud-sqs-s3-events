@@ -13,11 +13,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class CustomerRequest {
 
-        private String email;
+    private String email;
 
-        private String phoneNumber;
+    private String phoneNumber;
 
-        private String fullName;
+    private String fullName;
 
-        private LocalDate createdAt;
+    private LocalDate createdAt;
 }
