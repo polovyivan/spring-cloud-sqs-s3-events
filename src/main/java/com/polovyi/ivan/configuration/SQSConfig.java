@@ -29,12 +29,6 @@ public class SQSConfig {
     @Value("${cloud.aws.region.static}")
     private String awsRegion;
 
-    @Value("${cloud.aws.s3.endpoint}")
-    private String s3BucketEndpoint;
-
-    @Value("${cloud.aws.s3.with-path-style-access-enabled}")
-    private Boolean isWithS3PathStyleAccessEnabled;
-
     @Bean
     public QueueMessageHandlerFactory queueMessageHandlerFactory() {
         QueueMessageHandlerFactory factory = new QueueMessageHandlerFactory();
